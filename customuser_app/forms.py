@@ -8,3 +8,8 @@ class MyUserForm(forms.ModelForm):
     class Meta():
         model = MyUser
         fields = ['username', 'password', 'display_name']
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=128)
+    password = forms.CharField(widget=forms.PasswordInput())

@@ -17,7 +17,7 @@
           <a class="nav-link" href="{% url 'home' %}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
@@ -25,10 +25,11 @@
       </ul>
       {% block body_block %}
       <h1>Welcome to the custom user!</h1>
+      {% if request.user.is_authenticated %}
+      <h4>Welcome {{ request.user.username }}</h4>
+      {% else %}
       <h4>Make use of the nav-bar to navigate through the log in page and the sign up page</h4>
-      {% for user in users_list %}
-      {{user}}
-      {% endfor %}
+      {% endif %}
       {% endblock %}
     </div>
   </body>
