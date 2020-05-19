@@ -20,4 +20,5 @@ from customuser_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='home'),
+    path('signup/', views.signupform, name='signup'),
 ]
