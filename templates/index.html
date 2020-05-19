@@ -16,17 +16,26 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'home' %}">Home</a>
         </li>
+        {% if request.user.is_authenticated %}
+        <li class='nav-item'>
+          <a class='nav-link btn btn-outline-danger' href="{% url 'logout' %}">Log out</a>
+        </li>
+        {% else %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'login' %}">Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
         </li>
+        {% endif %}
       </ul>
       {% block body_block %}
       <h1>Welcome to the custom user!</h1>
       {% if request.user.is_authenticated %}
-      <h4>Welcome {{ request.user.username }}</h4>
+      <p>You logged in as:</p>
+      <p><b>Username:</b> {{ request.user.username }}</p>
+      <p><b>Display name:</b> {{ request.user.display_name }}</p>
+      <p>Value of <b>'settings.AUTH_USER_MODEL'</b>: {{value}}</p>
       {% else %}
       <h4>Make use of the nav-bar to navigate through the log in page and the sign up page</h4>
       {% endif %}
