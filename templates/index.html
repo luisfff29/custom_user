@@ -35,7 +35,9 @@
       <p>You logged in as:</p>
       <p><b>Username:</b> {{ request.user.username }}</p>
       <p><b>Display name:</b> {{ request.user.display_name }}</p>
-      <p>Value of <b>'settings.AUTH_USER_MODEL'</b>: {{value}}</p>
+      <p><b>Homepage:</b> {{ request.user.homepage }}</p>
+      <p><b>Age:</b> {{ request.user.age }}</p>
+      <p><b>'settings.AUTH_USER_MODEL'</b>: {{value}}</p>
       {% else %}
       <h4>Make use of the nav-bar to navigate through the log in page and the sign up page</h4>
       {% endif %}

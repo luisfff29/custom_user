@@ -19,7 +19,13 @@ def signupform(request):
         if form.is_valid():
             data = form.cleaned_data
             usuario = MyUser.objects.create_user(
-                username=data['username'], password=data['password'], display_name=data['display_name'], is_staff=True, is_superuser=True)
+                username=data['username'],
+                password=data['password'],
+                display_name=data['display_name'],
+                homepage=data['homepage'],
+                age=data['age'],
+                is_staff=True,
+                is_superuser=True)
             usuario.save()
         return HttpResponseRedirect(reverse('login'))
 
