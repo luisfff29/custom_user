@@ -1,4 +1,9 @@
 {% extends 'index.html' %}
 {% block body_block %}
-{{ form.as_p }}
+<h1>Create a Super User</h1>
+<form action="" , method='post'>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value='Sign Up'>
+</form>
 {% endblock %}

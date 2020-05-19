@@ -3,6 +3,8 @@ from customuser_app.models import MyUser
 
 
 class MyUserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
+
     class Meta():
         model = MyUser
-        fields = '__all__'
+        fields = ['username', 'password', 'display_name']
